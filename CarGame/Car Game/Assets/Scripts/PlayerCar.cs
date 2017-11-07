@@ -27,20 +27,20 @@ public class PlayerCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             m_rb.AddForce(transform.up * m_Accel, ForceMode2D.Force);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             m_rb.AddForce(-transform.up * (m_Accel * m_ReverseAccelFactor), ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             m_rb.AddTorque(m_Turning * GetTurningPower(), ForceMode2D.Force);
 
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             m_rb.AddTorque(-m_Turning * GetTurningPower(), ForceMode2D.Force);
 
