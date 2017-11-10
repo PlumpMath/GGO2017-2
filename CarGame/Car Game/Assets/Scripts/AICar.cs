@@ -36,6 +36,7 @@ public class AICar : MonoBehaviour
     void Start()
     {
         m_rb.centerOfMass = new Vector2(0.0f, -0.4f);
+        GenerateFullPath();
 
     }
 
@@ -47,7 +48,7 @@ public class AICar : MonoBehaviour
         float m_targetAngle = UpdateTurnAmount();
 
         //Drive Forward
-        //  Will Definitely need local obstacle check.
+        //  Will Definitely need local obstacle check. eventually.
 
         m_rb.AddForce(transform.up * m_Accel, ForceMode2D.Force);
 
@@ -58,31 +59,35 @@ public class AICar : MonoBehaviour
         }
 
 
-        /*
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-            m_rb.AddForce(transform.up * m_Accel, ForceMode2D.Force);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-            m_rb.AddForce(-transform.up * (m_Accel * m_ReverseAccelFactor), ForceMode2D.Force);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            m_rb.AddTorque(m_Turning * GetTurningPower(), ForceMode2D.Force);
-
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            m_rb.AddTorque(-m_Turning * GetTurningPower(), ForceMode2D.Force);
-
-        }
-        */
-
-
-
-
     }
+
+    public void GenerateFullPath()
+    {
+        List<RoadNode> newNodes = new List<RoadNode>();
+
+
+        //assume loop (always for now)
+        if (m_Loop[0] != m_Loop[m_Loop.Count - 1])
+        {
+            m_Loop.Add(m_Loop[0]);
+        }
+
+        for (int i = 0; i < m_Loop.Count; i++)
+        {
+            newNodes.Add(m_Loop[i]);
+            if (i == m_Loop.Count - 1)
+            {
+                break;
+            }
+            newNodes.AddRange(FindPath(m_Loop[i], m_Loop[i + 1]));
+            newNodes.RemoveAt(newNodes.Count - 1);//trim excess
+
+        }
+
+        m_Loop = newNodes;
+    }
+
+ 
 
     private float UpdateTurnAmount()
     {
@@ -126,5 +131,147 @@ public class AICar : MonoBehaviour
 
     }
 
+
+    struct anode
+    {
+        public RoadNode parent;
+        public float gCost;
+        public float hCost;
+        public float fCost;
+    }
+
+
+    List<RoadNode> FindPath(RoadNode startNode, RoadNode targetNode)
+    {
+
+
+        List<RoadNode> openSet = new List<RoadNode>();
+        HashSet<RoadNode> closedSet = new HashSet<RoadNode>();
+        Dictionary<RoadNode,anode > storeSet = new Dictionary<RoadNode,anode>();
+        anode snode = new anode();
+        snode.parent = startNode;
+        snode.gCost = 0;
+        snode.hCost = GetDistance(startNode, targetNode);
+        snode.fCost = snode.hCost + snode.gCost;
+        storeSet.Add(startNode, snode);
+        openSet.Add(startNode);
+
+
+        while (openSet.Count > 0)
+        {
+            RoadNode node = openSet[0];
+
+            for (int i = 1; i < openSet.Count; i++)
+            {
+                if (storeSet[openSet[i]].fCost < storeSet[node].fCost || storeSet[openSet[i]].fCost == storeSet[node].fCost)
+                {
+                    if (storeSet[openSet[i]].hCost < storeSet[node].hCost)
+                        node = openSet[i];
+                }
+            }
+
+
+            openSet.Remove(node);
+            closedSet.Add(node);
+
+            if (node == targetNode)
+            {
+                return RetracePath(startNode, targetNode, storeSet);
+
+            }
+
+            foreach (RoadNode neighbour in node.m_Neighbours)
+            {
+
+                if (closedSet.Contains(neighbour))
+                {
+                    continue;
+                }
+                float newCostToNeighbour = storeSet[node].gCost + GetDistance(node, neighbour);
+                if (!openSet.Contains(neighbour))
+                {
+
+                    bool isStored = storeSet.ContainsKey(neighbour);
+                    bool isLess = true;
+
+                    if (isStored)
+                    {
+                        isLess = newCostToNeighbour < storeSet[neighbour].gCost;
+                    }
+                    if (isLess)
+                    {
+
+                        anode sode = new anode();
+
+                        sode.gCost = newCostToNeighbour;
+                        sode.hCost = GetDistance(neighbour, targetNode);
+                        sode.parent = node;
+                        sode.fCost = sode.hCost + sode.gCost;
+
+                        if (isStored)
+                        { 
+                            storeSet[neighbour] = sode;
+                        }
+                        else
+                        {
+                            storeSet.Add(neighbour, sode);
+
+                        }
+
+
+                        if (!openSet.Contains(neighbour))
+                            openSet.Add(neighbour);
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    List<RoadNode> RetracePath(RoadNode startNode, RoadNode endNode, Dictionary<RoadNode, anode> stored)
+    {
+        List<RoadNode> path = new List<RoadNode>();
+        RoadNode currentNode = endNode;
+
+        while (currentNode != startNode)
+        {
+            path.Add(currentNode);
+            currentNode = stored[currentNode].parent;
+        }
+        path.Reverse();
+
+        return path;
+
+    }
+
+    float GetDistance(RoadNode nodeA, RoadNode nodeB)
+    {
+        return Vector2.Distance(nodeA.transform.position, nodeB.transform.position);
+
+
+    }
+
+
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 0.5f);
+
+        if (m_Loop != null)
+        {
+            if (m_Loop.Count > 0)
+            {
+
+                for (int i = 1; i < m_Loop.Count; i++)
+                {
+                    Gizmos.DrawLine(m_Loop[i - 1].transform.position, m_Loop[i].transform.position);
+
+                }
+                Gizmos.DrawLine(m_Loop[0].transform.position, m_Loop[m_Loop.Count - 1].transform.position);
+
+            }
+        }
+    }
   
 }

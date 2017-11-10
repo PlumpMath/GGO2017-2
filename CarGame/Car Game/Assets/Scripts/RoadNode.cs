@@ -7,17 +7,7 @@ public class RoadNode : MonoBehaviour
 
     public List<RoadNode> m_Neighbours;
 
-    // Use this for initialization
-    void Start()
-    {
-		
-    }
-	
-    // Update is called once per frame
-    void Update()
-    {
-		
-    }
+    private RoadManager m_RoadManager;
 
     void OnDrawGizmosSelected()
     {
@@ -28,7 +18,46 @@ public class RoadNode : MonoBehaviour
         {
             foreach (RoadNode a in m_Neighbours)
             {
-                Gizmos.DrawLine(transform.position, a.transform.position);
+                if (a != null)
+                {
+                    Gizmos.DrawLine(transform.position, a.transform.position);
+                }
+            }
+        }
+    }
+
+    public void AutoNodeDetect()
+    {
+        m_Neighbours.Clear();
+
+        if (m_RoadManager == null)
+        {
+            m_RoadManager = GameObject.FindObjectOfType<RoadManager>();
+        }
+
+        RoadNode[] nodes = GameObject.FindObjectsOfType<RoadNode>();
+        for (int i = 0; i < nodes.Length; i++)
+        {
+
+            float distance = Vector2.Distance(nodes[i].transform.position, transform.position);
+            if (
+                distance <= 20.0f &&
+                nodes[i] != this)
+            {
+
+                RaycastHit2D[] mcast = new RaycastHit2D[1];
+                Physics2D.CircleCast(transform.position,
+                    0.5f,
+                    nodes[i].transform.position - transform.position,
+                    m_RoadManager.m_WorldObstacles,
+                    mcast,
+                    distance);
+
+                if (mcast[0].collider == null)
+                {
+                    m_Neighbours.Add(nodes[i]);
+
+                }
             }
         }
     }
@@ -37,6 +66,7 @@ public class RoadNode : MonoBehaviour
     {
 
         //we ensure the relationship is 2 ways
+        //is this good idea im not sure
         foreach (RoadNode a in m_Neighbours)
         {
             if (!a.m_Neighbours.Contains(this))
