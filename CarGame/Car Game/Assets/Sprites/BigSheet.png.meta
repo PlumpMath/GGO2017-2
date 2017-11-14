@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 64a1c9856467b4423982ffddc9178255
-timeCreated: 1510062115
+timeCreated: 1510352851
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -28,6 +28,25 @@ TextureImporter:
     21300042: BigSheet_21
     21300044: BigSheet_22
     21300046: Bldng_Fill
+    21300048: BigSheet_0
+    21300050: BigSheet_1
+    21300052: BigSheet_2
+    21300054: BigSheet_3
+    21300056: BigSheet_4
+    21300058: BigSheet_5
+    21300060: BigSheet_6
+    21300062: BigSheet_7
+    21300064: BigSheet_8
+    21300066: BigSheet_9
+    21300068: BigSheet_10
+    21300070: BigSheet_11
+    21300072: BigSheet_12
+    21300074: BigSheet_13
+    21300076: BigSheet_14
+    21300078: BigSheet_15
+    21300080: BigSheet_16
+    21300082: BigSheet_17
+    21300084: BigSheet_19
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -129,11 +148,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Road_Empty
+      name: BigSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 480
+        x: 1
+        y: 479
         width: 32
         height: 32
       alignment: 0
@@ -143,11 +162,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Road_Lines
+      name: BigSheet_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 480
+        x: 35
+        y: 479
         width: 32
         height: 32
       alignment: 0
@@ -157,11 +176,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Road_Intersection
+      name: BigSheet_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 480
+        x: 69
+        y: 479
         width: 32
         height: 32
       alignment: 0
@@ -171,11 +190,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Road_Intersection2
+      name: BigSheet_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 480
+        x: 103
+        y: 479
         width: 32
         height: 32
       alignment: 0
@@ -185,11 +204,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Road_Entrance
+      name: BigSheet_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 480
+        x: 137
+        y: 479
         width: 32
         height: 32
       alignment: 0
@@ -199,11 +218,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Road_Edge
+      name: BigSheet_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 480
+        x: 171
+        y: 479
         width: 32
         height: 32
       alignment: 0
@@ -213,11 +232,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Road_EdgeCurve
+      name: BigSheet_6
       rect:
         serializedVersion: 2
-        x: 192
-        y: 480
+        x: 205
+        y: 479
         width: 32
         height: 32
       alignment: 0
@@ -227,11 +246,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Special_Cadaver
+      name: BigSheet_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 448
+        x: 1
+        y: 445
         width: 32
         height: 32
       alignment: 0
@@ -241,11 +260,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Special_Scrap
+      name: BigSheet_8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 448
+        x: 35
+        y: 445
         width: 32
         height: 32
       alignment: 0
@@ -255,11 +274,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Special_CadaverEntrance
+      name: BigSheet_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 448
+        x: 69
+        y: 445
         width: 32
         height: 32
       alignment: 0
@@ -269,11 +288,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Special_ScrapEntrance
+      name: BigSheet_10
       rect:
         serializedVersion: 2
-        x: 96
-        y: 448
+        x: 103
+        y: 445
         width: 32
         height: 32
       alignment: 0
@@ -283,11 +302,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Detail_Sidewalk
+      name: BigSheet_11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 416
+        x: 1
+        y: 411
         width: 32
         height: 32
       alignment: 0
@@ -297,11 +316,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Object_Bush
+      name: BigSheet_12
       rect:
         serializedVersion: 2
-        x: 32
-        y: 416
+        x: 35
+        y: 411
         width: 32
         height: 32
       alignment: 0
@@ -311,11 +330,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Object_Tree
+      name: BigSheet_13
       rect:
         serializedVersion: 2
-        x: 64
-        y: 416
+        x: 69
+        y: 411
         width: 32
         height: 32
       alignment: 0
@@ -325,11 +344,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Shadow_Angle
+      name: BigSheet_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 1
+        y: 377
         width: 32
         height: 32
       alignment: 0
@@ -339,11 +358,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Shadow_Solid
+      name: BigSheet_15
       rect:
         serializedVersion: 2
-        x: 32
-        y: 384
+        x: 35
+        y: 377
         width: 32
         height: 32
       alignment: 0
@@ -353,11 +372,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Bldng_TL
+      name: BigSheet_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 352
+        x: 1
+        y: 343
         width: 32
         height: 32
       alignment: 0
@@ -367,11 +386,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Bldng_Edge
+      name: BigSheet_17
       rect:
         serializedVersion: 2
-        x: 32
-        y: 352
+        x: 35
+        y: 343
         width: 32
         height: 32
       alignment: 0
@@ -384,8 +403,8 @@ TextureImporter:
       name: BigSheet_18
       rect:
         serializedVersion: 2
-        x: 64
-        y: 352
+        x: 69
+        y: 343
         width: 32
         height: 32
       alignment: 0
@@ -395,67 +414,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Detail_bldngvent
+      name: BigSheet_19
       rect:
         serializedVersion: 2
-        x: 96
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BigSheet_20
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BigSheet_21
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BigSheet_22
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bldng_Fill
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 320
+        x: 103
+        y: 343
         width: 32
         height: 32
       alignment: 0
