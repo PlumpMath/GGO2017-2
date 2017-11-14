@@ -46,9 +46,6 @@ public class PlayerCar : MonoBehaviour
 
         }
 
-
-
-
     }
 
     private float GetTurningPower()
