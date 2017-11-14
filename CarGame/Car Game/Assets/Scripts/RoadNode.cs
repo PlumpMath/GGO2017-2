@@ -7,11 +7,15 @@ public class RoadNode : MonoBehaviour
 
     public List<RoadNode> m_Neighbours;
 
-    private RoadManager m_RoadManager;
+    private OmniRoadManager m_RoadManager;
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
+        if (m_RoadManager == null)
+        {
+            m_RoadManager = GameObject.FindObjectOfType<OmniRoadManager>();
+        }
+        Gizmos.color = m_RoadManager.m_EditorColor;
         Gizmos.DrawSphere(transform.position, 0.5f);
 
         if (m_Neighbours != null)
@@ -32,7 +36,7 @@ public class RoadNode : MonoBehaviour
 
         if (m_RoadManager == null)
         {
-            m_RoadManager = GameObject.FindObjectOfType<RoadManager>();
+            m_RoadManager = GameObject.FindObjectOfType<OmniRoadManager>();
         }
 
         RoadNode[] nodes = GameObject.FindObjectsOfType<RoadNode>();
