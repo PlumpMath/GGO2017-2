@@ -26,4 +26,6 @@ public  class StaticWorld : MonoBehaviour
 
 
     public GibPooler Gibs;
+
+    public PlayerData PlayerData;
 }

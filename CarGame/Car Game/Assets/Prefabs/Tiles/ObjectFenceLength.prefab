@@ -69,11 +69,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GibVis:
-  - {fileID: 21300016, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
-  - {fileID: 21300018, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
-  - {fileID: 21300020, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
-  - {fileID: 21300022, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
-  - {fileID: 21300024, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
+  - {fileID: 21300026, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
+  - {fileID: 21300028, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
+  - {fileID: 21300030, guid: 9b7ac0a05e7f34e9d876061168821dc0, type: 3}
+  - {fileID: 21300008, guid: 782befef4dfc940b5884131866265769, type: 3}
   m_Count: 4
 --- !u!212 &212685600004667858
 SpriteRenderer:
