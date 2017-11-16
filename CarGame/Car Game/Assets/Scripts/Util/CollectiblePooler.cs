@@ -33,7 +33,7 @@ public class CollectiblePooler : MonoBehaviour
         return tb;
     }
 
-    public void SpawnEffect(Vector3 position, Sprite[] spriteList)
+    public void SpawnEffect(Vector3 position, Vector2 direction, CollectibleObject.CollectibleType collectType)
     {
         CollectibleObject ps = GetNextEffect();
         if (ps != null)
@@ -42,7 +42,7 @@ public class CollectiblePooler : MonoBehaviour
             ps.transform.position = position;
             ps.transform.Rotate(0, 0, Random.Range(0, 360));
 
-            ps.Setup(CollectibleObject.CollectibleType.Gold);
+            ps.SpawnCollectible(collectType, direction);
 
             if (InactiveCollectibles.Contains(ps))
             {
@@ -62,7 +62,7 @@ public class CollectiblePooler : MonoBehaviour
     }
 
 
-    private void DeactivateCollectible(Gib tb)
+    private void DeactivateCollectible(CollectibleObject tb)
     {
 
         if (ActiveCollectibles.Contains(tb))
@@ -71,7 +71,7 @@ public class CollectiblePooler : MonoBehaviour
         }
         if (InactiveCollectibles.Contains(tb))
         {
-            Debug.Log("trying to deactivate already deactivated Gib!");
+            Debug.Log("trying to deactivate already deactivated Collectible!");
         }
         else
         {

@@ -7,6 +7,7 @@ public class SmashLoot : MonoBehaviour
 
     public bool m_Refills;
     public float m_RefillTimer;
+    public LootTable m_Loot;
 
     private float m_refillCounter = 999;
 
@@ -16,6 +17,10 @@ public class SmashLoot : MonoBehaviour
         {
             Debug.Log("Smashed");
             m_refillCounter = 0;
+            foreach (CollectibleObject.CollectibleType t in  m_Loot.GetCollectibleDrops())
+            {
+                StaticWorld.instance.Collectibles.SpawnEffect(transform.position, collision.relativeVelocity + (collision.relativeVelocity.magnitude * new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f))), t);
+            }
         }
     }
 

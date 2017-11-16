@@ -26,6 +26,9 @@ public  class StaticWorld : MonoBehaviour
 
 
     public GibPooler Gibs;
+    public CollectiblePooler Collectibles;
+
+    public UIController mUI;
 
     public PlayerData PlayerData;
 }
