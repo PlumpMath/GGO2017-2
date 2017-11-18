@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: fff7444b8a18b4922ab282f5a79d91ac
+timeCreated: 1511040347
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Xaba
+  fontNames:
+  - Xaba
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

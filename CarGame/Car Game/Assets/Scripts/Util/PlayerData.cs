@@ -35,6 +35,23 @@ public class PlayerData : MonoBehaviour
 
     }
 
+    public int GetCurrencyForType(CollectibleObject.CollectibleType type)
+    {
+        switch (type)
+        {
+            case CollectibleObject.CollectibleType.Cadaver:
+                return CadaverCount;
+                break;
+            case CollectibleObject.CollectibleType.Gold:
+                return GoldCount;
+                break;
+            case CollectibleObject.CollectibleType.Scrap:
+                return ScrapCount;
+                break;
+        }
+        return 0;
+    }
+
     public void CashTransaction(int dif)
     {
         TotalCash += dif;

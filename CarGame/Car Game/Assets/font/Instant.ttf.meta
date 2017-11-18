@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 588073f31675f48fb9a2aebd6562e924
+timeCreated: 1511040467
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: 0
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Instant
+  fontNames:
+  - Instant
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 1
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

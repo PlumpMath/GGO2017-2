@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 64a1c9856467b4423982ffddc9178255
-timeCreated: 1510839847
+timeCreated: 1511041530
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -49,6 +49,14 @@ TextureImporter:
     21300084: BigSheet_19
     21300086: BigSheet_23
     21300088: BigSheet_24
+    21300090: BigSheet_25
+    21300092: BigSheet_26
+    21300094: BigSheet_27
+    21300096: BigSheet_28
+    21300098: BigSheet_29
+    21300100: BigSheet_30
+    21300102: BigSheet_31
+    21300104: BigSheet_32
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -571,7 +579,7 @@ TextureImporter:
       name: BigSheet_22
       rect:
         serializedVersion: 2
-        x: 238
+        x: 239
         y: 479
         width: 32
         height: 32
@@ -605,6 +613,118 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_25
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 309
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_26
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 479
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_27
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 309
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_28
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 309
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_29
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 309
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_30
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 309
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_31
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 309
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BigSheet_32
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 309
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
