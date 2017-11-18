@@ -36,6 +36,7 @@ public class Gib : MonoBehaviour
     {
         if (m_active)
         {
+            m_active = false;
             m_Sprite.color = Color.clear;
             m_rb.simulated = false;
             m_Pool.FlagGib(this);
