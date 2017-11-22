@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Cars
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 0
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    packedHash:
+      serializedVersion: 2
+      Hash: 2f6a98c5105e182a8dcbbee89eb567e8
+    variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 4
+    hashString: 2f6a98c5105e182a8dcbbee89eb567e8
+    totalSpriteSurfaceArea: 33296
+    packables:
+    - {fileID: 102900000, guid: 597228e7ef38c46c5842d860502194e1, type: 3}
+    packedSpriteRenderDataKeys:
+    - 583e92839a52241dfa5ce6eeb93e5b15: 21300000
+    - 95037dccfb67c428383aa0a121bc2095: 21300000
+    - ff7e5f4f98dce45e0b3fd5cdd1c80c33: 21300000
+    - 5a3dbcb19f46a4f51b85933bee7b0a76: 21300000
+    - f68f043b5747d45cfbc32f29390b0a26: 21300000
+    - d94a913d880d64a0aa9e2304f59990ec: 21300000
+    - aaf0b6fb3113b4106a8fa20d9e683305: 21300000
+    - 7425ff6e95d3c44f1954e140020c126f: 21300000
+    - f98e38789e37f484d8f862a751123eb7: 21300000
+    - 28b6dd150c82149deb3b548171632cf4: 21300000
+    - 1a3ab053034584adab5f6c0fafdfdaed: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 583e92839a52241dfa5ce6eeb93e5b15, type: 3}
+  - {fileID: 21300000, guid: 95037dccfb67c428383aa0a121bc2095, type: 3}
+  - {fileID: 21300000, guid: ff7e5f4f98dce45e0b3fd5cdd1c80c33, type: 3}
+  - {fileID: 21300000, guid: 5a3dbcb19f46a4f51b85933bee7b0a76, type: 3}
+  - {fileID: 21300000, guid: f68f043b5747d45cfbc32f29390b0a26, type: 3}
+  - {fileID: 21300000, guid: d94a913d880d64a0aa9e2304f59990ec, type: 3}
+  - {fileID: 21300000, guid: aaf0b6fb3113b4106a8fa20d9e683305, type: 3}
+  - {fileID: 21300000, guid: 7425ff6e95d3c44f1954e140020c126f, type: 3}
+  - {fileID: 21300000, guid: f98e38789e37f484d8f862a751123eb7, type: 3}
+  - {fileID: 21300000, guid: 28b6dd150c82149deb3b548171632cf4, type: 3}
+  - {fileID: 21300000, guid: 1a3ab053034584adab5f6c0fafdfdaed, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - CarMoney
+  - CarPickup
+  - CarHearse
+  - CarCar
+  - CarVan
+  - CarCop
+  - CarGarbage
+  - PlayerCar4
+  - PlayerCar2
+  - PlayerCar3
+  - PlayerCar1
+  m_Tag: Cars
+  m_IsVariant: 0

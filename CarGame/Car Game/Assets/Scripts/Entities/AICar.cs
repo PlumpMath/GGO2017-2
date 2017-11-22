@@ -21,19 +21,21 @@ public class AICar : MonoBehaviour
     public List<RoadNode> m_Loop;
     public float m_TargetNodeDistanceThreshold;
 
+    protected Rigidbody2D m_rb;
+
+
     private PolygonCollider2D m_collider;
-    private Rigidbody2D m_rb;
     private int m_targetNodeIndex;
     private float m_targetAngle;
 
-    void Awake()
+    public virtual void Awake()
     {
         m_collider = GetComponent<PolygonCollider2D>();
         m_rb = GetComponent<Rigidbody2D>();
     }
 
     // Use this for initialization
-    void Start()
+    public virtual void Start()
     {
         m_rb.centerOfMass = new Vector2(0.0f, -0.4f);
         GenerateFullPath();
@@ -41,11 +43,11 @@ public class AICar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         //Car AI
         UpdateTargetNode();
-        float m_targetAngle = UpdateTurnAmount();
+        float m_targetAngle = UpdateTurnAmount(m_Loop[m_targetNodeIndex].transform);
 
         //Drive Forward
         //  Will Definitely need local obstacle check. eventually.
@@ -55,13 +57,10 @@ public class AICar : MonoBehaviour
         if (m_targetAngle != 0.0f)
         {
             m_rb.AddTorque(m_targetAngle * m_Turning, ForceMode2D.Force);
-
         }
-
-
     }
 
-    public void GenerateFullPath()
+    public virtual void GenerateFullPath()
     {
         List<RoadNode> newNodes = new List<RoadNode>();
 
@@ -88,8 +87,12 @@ public class AICar : MonoBehaviour
     }
 
  
+    protected void OverrideTargetNode(int id)
+    {
+        m_targetNodeIndex = id;
+    }
 
-    private float UpdateTurnAmount()
+    protected float UpdateTurnAmount(Transform target)
     {
         //check angle to target node
         //  adjust turning radius
@@ -97,7 +100,7 @@ public class AICar : MonoBehaviour
         
         float sign = Vector2.SignedAngle(
                          (transform.position + transform.up) - transform.position,
-                         m_Loop[m_targetNodeIndex].transform.position - transform.position);
+                         target.position - transform.position);
         if (Mathf.Abs(sign) <= 15.0f)
         {
             return 0.0f;
@@ -111,6 +114,24 @@ public class AICar : MonoBehaviour
         return sign * Mathf.Clamp01(Mathf.InverseLerp(0.2f, 1.0f, Mathf.Abs(m_rb.velocity.magnitude)));
 
 
+    }
+
+    protected int GetNearestNodeFromGraph(List<RoadNode> m_nodes)
+    {
+
+        int id = -1;
+        float distance = 9999999;
+        float cache = 0;
+        for (int i = 0; i < m_nodes.Count; i++)
+        {
+            cache = Vector2.Distance(transform.position, m_nodes[i].transform.position);
+            if (cache < distance)
+            {
+                distance = cache;
+                id = i;
+            }
+        }
+        return id;
     }
 
     private void UpdateTargetNode()

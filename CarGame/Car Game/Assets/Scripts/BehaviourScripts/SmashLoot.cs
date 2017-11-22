@@ -15,7 +15,6 @@ public class SmashLoot : MonoBehaviour
     {
         if (m_refillCounter >= m_RefillTimer)
         {
-            Debug.Log("Smashed");
             m_refillCounter = 0;
             foreach (CollectibleObject.CollectibleType t in  m_Loot.GetCollectibleDrops())
             {

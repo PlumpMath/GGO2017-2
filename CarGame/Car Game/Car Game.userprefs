@@ -1,0 +1,25 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SellingBooth.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PrefabTile.cs" Line="49" Column="40" />
+      <File FileName="Assets/Scripts/HideMapAtRuntime.cs" Line="17" Column="10" />
+      <File FileName="Assets/Scripts/LootTable.cs" Line="39" Column="22" />
+      <File FileName="Assets/Scripts/BehaviourScripts/SmashLoot.cs" Line="22" Column="152" />
+      <File FileName="Assets/Scripts/Entities/CollectibleObject.cs" Line="58" Column="69" />
+      <File FileName="Assets/Scripts/Util/PlayerData.cs" Line="38" Column="74" />
+      <File FileName="Assets/KPD/TextMeshEffects/WaveText.cs" Line="28" Column="1" />
+      <File FileName="Assets/Scripts/UI/CurrencyUI.cs" Line="17" Column="5" />
+      <File FileName="Assets/Scripts/UI/CashUI.cs" Line="15" Column="31" />
+      <File FileName="Assets/Scripts/UI/UIController.cs" Line="15" Column="24" />
+      <File FileName="Assets/Scripts/Util/StaticWorld.cs" Line="36" Column="21" />
+      <File FileName="Assets/Scripts/SellingBooth.cs" Line="22" Column="30" />
+      <File FileName="Assets/Scripts/Title/TitleScreen.cs" Line="21" Column="75" />
+      <File FileName="Assets/Scripts/SellingUI.cs" Line="69" Column="45" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
