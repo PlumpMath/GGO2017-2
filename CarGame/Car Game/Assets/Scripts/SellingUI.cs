@@ -52,11 +52,11 @@ public class SellingUI : MonoBehaviour
 
         amt = StaticWorld.instance.PlayerData.GetCurrencyForType(type);
 
-        CurrencyLose.text = amt.ToString();
+        CurrencyLose.text = "-" + amt.ToString();
 
         gain = (PerObject * amt) - UpFront;
 
-        CashGain.text = gain.ToString();
+        CashGain.text = "+" + gain.ToString();
 
 
 

@@ -45,7 +45,7 @@ public  class StaticWorld : MonoBehaviour
     public Color RedTop;
     public Color RedBottom;
 
-    private float m_LevelDuration = 20.0f;
+    private float m_LevelDuration = 180.0f;
     private float minutes;
 
     void Update()
