@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f68f043b5747d45cfbc32f29390b0a26
-timeCreated: 1511357081
+guid: 8ff4863fdadfb4c5090ae9352f28225d
+timeCreated: 1511389493
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -106,7 +106,7 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape: []
-  spritePackingTag: Cars
+  spritePackingTag: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 
