@@ -16,12 +16,22 @@ public class AICar : MonoBehaviour
     public float m_Accel;
     public float m_ReverseAccelFactor;
     public float m_Turning;
+    public float m_ReverseDuraton;
 
     [Header("Pathfinding Variables")]
     public List<RoadNode> m_Loop;
     public float m_TargetNodeDistanceThreshold;
 
     protected Rigidbody2D m_rb;
+
+    public LayerMask m_LayersToAvoid;
+
+    private RaycastHit2D[] m_hits = new RaycastHit2D[1];
+
+    private bool m_reversing = false;
+    private float m_reverseCounter = 0;
+
+
 
 
     private PolygonCollider2D m_collider;
@@ -47,13 +57,40 @@ public class AICar : MonoBehaviour
     {
         //Car AI
         UpdateTargetNode();
-        float m_targetAngle = UpdateTurnAmount(m_Loop[m_targetNodeIndex].transform);
+        float m_targetAngle = 0.0f;
 
         //Drive Forward
         //  Will Definitely need local obstacle check. eventually.
 
-        m_rb.AddForce(transform.up * m_Accel, ForceMode2D.Force);
 
+        if (!m_reversing)
+        {
+            m_targetAngle = UpdateTurnAmount(m_Loop[m_targetNodeIndex].transform);
+
+            m_rb.AddForce(transform.up * m_Accel * Time.deltaTime, ForceMode2D.Force);
+
+            int e = Physics2D.CircleCastNonAlloc(transform.position, 0.5f, transform.up, m_hits, m_Accel * Mathf.Clamp01(m_rb.velocity.magnitude) * Time.deltaTime, m_LayersToAvoid);
+
+            if (e != 0)
+            {
+                m_reversing = true;
+                m_reverseCounter = 0;
+            }
+        }
+        else
+        {
+
+            m_targetAngle = UpdateTurnAmount(m_Loop[m_targetNodeIndex].transform, 2.0f);
+            m_rb.AddForce(-transform.up * m_Accel * Time.deltaTime, ForceMode2D.Force);
+            m_targetAngle *= 5.0f;
+            m_reverseCounter += Time.deltaTime;
+            if (m_reverseCounter > m_ReverseDuraton)
+            {
+                m_reversing = false;
+            }
+
+        }
+       
         if (m_targetAngle != 0.0f)
         {
             m_rb.AddTorque(m_targetAngle * m_Turning, ForceMode2D.Force);
@@ -92,7 +129,7 @@ public class AICar : MonoBehaviour
         m_targetNodeIndex = id;
     }
 
-    protected float UpdateTurnAmount(Transform target)
+    protected float UpdateTurnAmount(Transform target, float threshold = 15.0f)
     {
         //check angle to target node
         //  adjust turning radius
@@ -101,7 +138,7 @@ public class AICar : MonoBehaviour
         float sign = Vector2.SignedAngle(
                          (transform.position + transform.up) - transform.position,
                          target.position - transform.position);
-        if (Mathf.Abs(sign) <= 15.0f)
+        if (Mathf.Abs(sign) <= threshold)
         {
             return 0.0f;
         }

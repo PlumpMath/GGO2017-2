@@ -15,8 +15,12 @@ public class CopCar : AICar
     public bool isPissed;
     public CopState m_State = CopState.patrolling;
     public LayerMask m_PlayerLayer;
+    public float m_StunDuration;
+
 
     private PlayerCar m_Player;
+
+    private float m_counter = 0;
 
     private RaycastHit2D[] m_results = new RaycastHit2D[1];
     //need nodelist for the chase - will be custom.
@@ -44,6 +48,12 @@ public class CopCar : AICar
 
                 break;
             case CopState.waiting:
+
+                m_counter += Time.deltaTime;
+                if (m_counter > m_StunDuration)
+                {
+                    StartChasingPlayer();
+                }
                 //do nothing?
                 break;
             case CopState.chasing:
@@ -69,12 +79,12 @@ public class CopCar : AICar
 
                     if (Mathf.Abs(sign) > 90.0f)
                     {
-                        m_rb.AddForce((-transform.up) * m_Accel, ForceMode2D.Force);
+                        m_rb.AddForce((-transform.up) * m_Accel * Time.deltaTime, ForceMode2D.Force);
 
                     }
                     else
                     {
-                        m_rb.AddForce(transform.up * m_Accel, ForceMode2D.Force);
+                        m_rb.AddForce(transform.up * m_Accel * Time.deltaTime, ForceMode2D.Force);
 
                     }
 
@@ -106,7 +116,8 @@ public class CopCar : AICar
                 if (collision.collider.CompareTag("Player"))
                 {
                     m_Player = collision.collider.GetComponent<PlayerCar>();
-                    StartChasingPlayer();
+                    m_rb.AddForce(collision.relativeVelocity * 0.1f, ForceMode2D.Impulse);
+                    StartWait();
                 }
 
                 break;
@@ -143,6 +154,12 @@ public class CopCar : AICar
 
         isPissed = CanSeePlayer();
 
+    }
+
+    private void StartWait()
+    {
+        m_State = CopState.waiting;
+        m_counter = 0;
     }
 
 
