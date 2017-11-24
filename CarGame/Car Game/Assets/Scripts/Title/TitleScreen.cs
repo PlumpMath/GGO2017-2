@@ -18,7 +18,7 @@ public class TitleScreen : MonoBehaviour
 		
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Driving Sandbox", LoadSceneMode.Single);       
+            SceneManager.LoadScene(2, LoadSceneMode.Single);       
         }
     }
 }

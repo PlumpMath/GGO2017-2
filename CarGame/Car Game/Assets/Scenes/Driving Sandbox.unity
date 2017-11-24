@@ -7862,6 +7862,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 6400
   isPissed: 0
+  m_ChaseAccel: 32
   m_State: 0
   m_PlayerLayer:
     serializedVersion: 2
