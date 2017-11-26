@@ -15,19 +15,21 @@ public class SellingBooth : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-       
-        int amt = StaticWorld.instance.PlayerData.GetCurrencyForType(m_Type);
-        if (amt > 0)
+        if (collider.gameObject.CompareTag("Player"))
         {
-            Time.timeScale = 0.0f;
+            int amt = StaticWorld.instance.PlayerData.GetCurrencyForType(m_Type);
+            if (amt > 0)
+            {
+                Time.timeScale = 0.0f;
 
-            StaticWorld.instance.Seller.ShowSellingUI(m_Type, BuyAmount, UpFrontCost);
+                StaticWorld.instance.Seller.ShowSellingUI(m_Type, BuyAmount, UpFrontCost);
 
-            //cost per = BuyAmount
-            //Upfront = UpFront Cost;
+                //cost per = BuyAmount
+                //Upfront = UpFront Cost;
 
-            //todo this
+                //todo this
 
+            }
         }
 
     }

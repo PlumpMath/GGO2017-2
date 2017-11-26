@@ -112,6 +112,11 @@ public class CopCar : AICar
         switch (m_State)
         {
             case CopState.chasing:
+
+                if (collision.collider.CompareTag("Player"))
+                {
+                    //TODOcontinue
+                }
                 
                 break;
             case CopState.patrolling:
