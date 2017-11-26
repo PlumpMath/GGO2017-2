@@ -116,6 +116,9 @@ public class CopCar : AICar
                 if (collision.collider.CompareTag("Player"))
                 {
                     //TODOcontinue
+                    m_Player.GetHitByCop();
+                    m_rb.AddForce(collision.relativeVelocity * 0.1f, ForceMode2D.Impulse);
+                    StartWait();
                 }
                 
                 break;

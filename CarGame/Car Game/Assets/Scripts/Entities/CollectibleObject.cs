@@ -19,7 +19,9 @@ public class CollectibleObject : MonoBehaviour
     public SpriteRenderer m_Visual;
     public Rigidbody2D m_rb;
 
-
+    private bool m_CollectTimer = false;
+    private float SpawnTime = 1.0f;
+    private float m_SpawnCounter;
 
     private CollectibleType m_Type;
     private CollectiblePooler m_Parent;
@@ -37,6 +39,7 @@ public class CollectibleObject : MonoBehaviour
 
     public void SpawnCollectible(CollectibleType type, Vector3 dir)
     {
+        m_SpawnCounter = 0.0f;
         m_Visual.sprite = mSprites[(int)type];
         m_Type = type;
         m_Visual.color = Color.white;
@@ -49,7 +52,7 @@ public class CollectibleObject : MonoBehaviour
     {
         if (m_rb.simulated)
         {
-            if (collider.gameObject.CompareTag("Player"))
+            if (collider.gameObject.CompareTag("Player") && m_CollectTimer)
             {
                 //hide / dectivate self.
                 m_Visual.color = Color.clear;
@@ -57,6 +60,7 @@ public class CollectibleObject : MonoBehaviour
                 //transaction withplayer
                 StaticWorld.instance.PlayerData.CurrencyTransaction(1, m_Type);
                 m_Parent.FlagCollectible(this);
+                m_canBeCollected = false;
             }
             else
             {
@@ -65,5 +69,25 @@ public class CollectibleObject : MonoBehaviour
         }
 
 
+    }
+
+    private void Update()
+    {
+        if (m_canBeCollected)
+        {
+            if (m_SpawnCounter < SpawnTime)
+            {
+                m_CollectTimer = false;
+                m_SpawnCounter += Time.deltaTime;
+                m_Visual.color = Color.white * 0.5f;
+
+            }
+            else
+            {
+                m_CollectTimer = true;
+                m_Visual.color = Color.white;
+
+            }
+        }
     }
 }
