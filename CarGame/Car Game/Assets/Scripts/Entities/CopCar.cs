@@ -13,6 +13,8 @@ public class CopCar : AICar
     }
 
     public bool isPissed;
+    public float m_ChaseAccel;
+
     public CopState m_State = CopState.patrolling;
     public LayerMask m_PlayerLayer;
     public float m_StunDuration;
@@ -79,12 +81,12 @@ public class CopCar : AICar
 
                     if (Mathf.Abs(sign) > 90.0f)
                     {
-                        m_rb.AddForce((-transform.up) * m_Accel * Time.deltaTime, ForceMode2D.Force);
+                        m_rb.AddForce((-transform.up) * m_ChaseAccel * Time.deltaTime, ForceMode2D.Force);
 
                     }
                     else
                     {
-                        m_rb.AddForce(transform.up * m_Accel * Time.deltaTime, ForceMode2D.Force);
+                        m_rb.AddForce(transform.up * m_ChaseAccel * Time.deltaTime, ForceMode2D.Force);
 
                     }
 
@@ -110,6 +112,11 @@ public class CopCar : AICar
         switch (m_State)
         {
             case CopState.chasing:
+
+                if (collision.collider.CompareTag("Player"))
+                {
+                    //TODOcontinue
+                }
                 
                 break;
             case CopState.patrolling:

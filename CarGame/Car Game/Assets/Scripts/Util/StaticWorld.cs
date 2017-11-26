@@ -77,7 +77,9 @@ public  class StaticWorld : MonoBehaviour
 
         if (m_LevelDuration < 0)
         {
-            SceneManager.LoadScene("Title", LoadSceneMode.Single);
+            Time.timeScale = 0.0f;
+
+            mUI.m_GameOver.Setup(PlayerData.TotalCash);
         }
 
     }
