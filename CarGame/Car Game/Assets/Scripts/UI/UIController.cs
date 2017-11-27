@@ -10,6 +10,8 @@ public class UIController : MonoBehaviour
     public CurrencyUI m_Scrap;
     public CurrencyUI m_Cash;
 
+    public GameOverUI m_GameOver;
+
     public void SetCash(int val)
     {
         m_Cash.UpdateValue(val);

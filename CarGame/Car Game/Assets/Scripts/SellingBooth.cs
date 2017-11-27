@@ -12,19 +12,25 @@ public class SellingBooth : MonoBehaviour
     public int UpFrontCost;
 
 
-    private int saleCount;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        int amt = StaticWorld.instance.PlayerData.GetCurrencyForType(m_Type);
-        if (amt > 0)
+        if (collider.gameObject.CompareTag("Player"))
         {
-            
-            StaticWorld.instance.PlayerData.CashTransaction((amt * BuyAmount) - UpFrontCost);
-            StaticWorld.instance.PlayerData.CurrencyTransaction(-amt, m_Type);
+            int amt = StaticWorld.instance.PlayerData.GetCurrencyForType(m_Type);
+            if (amt > 0)
+            {
+                Time.timeScale = 0.0f;
 
+                StaticWorld.instance.Seller.ShowSellingUI(m_Type, BuyAmount, UpFrontCost);
+
+                //cost per = BuyAmount
+                //Upfront = UpFront Cost;
+
+                //todo this
+
+            }
         }
-
 
     }
 }
