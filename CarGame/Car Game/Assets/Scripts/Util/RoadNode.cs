@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class RoadNode : MonoBehaviour
 {
@@ -9,14 +10,15 @@ public class RoadNode : MonoBehaviour
 
     private OmniRoadManager m_RoadManager;
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         if (m_RoadManager == null)
         {
             m_RoadManager = GameObject.FindObjectOfType<OmniRoadManager>();
         }
         Gizmos.color = m_RoadManager.m_EditorColor;
-        Gizmos.DrawSphere(transform.position, 0.5f);
+        Gizmos.DrawSphere(transform.position, 0.25f);
+        Handles.Label(transform.position + (Vector3.up * 0.5f), gameObject.name);
 
         if (m_Neighbours != null)
         {
@@ -24,7 +26,13 @@ public class RoadNode : MonoBehaviour
             {
                 if (a != null)
                 {
+                    Gizmos.color = Color.cyan;
                     Gizmos.DrawLine(transform.position, a.transform.position);
+                    Gizmos.DrawCube(Vector3.Lerp(transform.position, a.transform.position, 0.86f), Vector3.one * 0.1f);
+                    Gizmos.DrawCube(Vector3.Lerp(transform.position, a.transform.position, 0.85f), Vector3.one * 0.2f);
+                    Gizmos.DrawCube(Vector3.Lerp(transform.position, a.transform.position, 0.83f), Vector3.one * 0.3f);
+
+
                 }
             }
         }
@@ -68,15 +76,18 @@ public class RoadNode : MonoBehaviour
 
     public void ValidateData()
     {
-
+        /*
         //we ensure the relationship is 2 ways
         //is this good idea im not sure
+
+        //NARRATOR: It wasn't
+
         foreach (RoadNode a in m_Neighbours)
         {
             if (!a.m_Neighbours.Contains(this))
             {
                 a.m_Neighbours.Add(this);
             }
-        }
+        }*/
     }
 }

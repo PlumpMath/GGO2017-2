@@ -129,7 +129,7 @@ public class AICar : MonoBehaviour
         m_targetNodeIndex = id;
     }
 
-    protected float UpdateTurnAmount(Transform target, float threshold = 15.0f)
+    protected float UpdateTurnAmount(Transform target, float threshold = 3.0f)
     {
         //check angle to target node
         //  adjust turning radius
