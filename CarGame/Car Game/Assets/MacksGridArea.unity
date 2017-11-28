@@ -112,42 +112,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &516057945
+--- !u!1001 &1109885118
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -340.25958
+      value: 39.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_LocalPosition.y
       value: -1.2471895
       objectReference: {fileID: 0}
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_LocalPosition.z
       value: -14.522135
       objectReference: {fileID: 0}
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4638119596563930, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
+    - target: {fileID: 4682503592285604, guid: 031584fc69757414b99a021ebd5340bb, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
