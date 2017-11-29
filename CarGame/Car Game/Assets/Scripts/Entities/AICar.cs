@@ -38,6 +38,21 @@ public class AICar : MonoBehaviour
     private int m_targetNodeIndex;
     private float m_targetAngle;
 
+
+    [ContextMenu("RandomPath")]
+    private void GenerateRandomPath()
+    {
+        m_Loop.Clear();
+        List<RoadNode> list = new List<RoadNode>();
+        list.AddRange(GameObject.FindObjectsOfType<RoadNode>());
+
+        int count = Random.Range(2, 10);
+        for (int i = 0; i < count; i++)
+        {
+            m_Loop.Add(list[Random.Range(0, list.Count)]);
+        }
+    }
+
     public virtual void Awake()
     {
         m_collider = GetComponent<PolygonCollider2D>();
@@ -69,7 +84,7 @@ public class AICar : MonoBehaviour
 
             m_rb.AddForce(transform.up * m_Accel * Time.deltaTime, ForceMode2D.Force);
 
-            int e = Physics2D.CircleCastNonAlloc(transform.position, 0.5f, transform.up, m_hits, m_Accel * Mathf.Clamp01(m_rb.velocity.magnitude) * Time.deltaTime, m_LayersToAvoid);
+            int e = Physics2D.CircleCastNonAlloc(transform.position, 0.3f, transform.up, m_hits, m_Accel * Mathf.Clamp01(m_rb.velocity.magnitude) * Time.deltaTime, m_LayersToAvoid);
 
             if (e != 0)
             {
@@ -82,7 +97,6 @@ public class AICar : MonoBehaviour
 
             m_targetAngle = UpdateTurnAmount(m_Loop[m_targetNodeIndex].transform, 2.0f);
             m_rb.AddForce(-transform.up * m_Accel * Time.deltaTime, ForceMode2D.Force);
-            m_targetAngle *= 5.0f;
             m_reverseCounter += Time.deltaTime;
             if (m_reverseCounter > m_ReverseDuraton)
             {
@@ -129,7 +143,7 @@ public class AICar : MonoBehaviour
         m_targetNodeIndex = id;
     }
 
-    protected float UpdateTurnAmount(Transform target, float threshold = 3.0f)
+    protected float UpdateTurnAmount(Transform target, float threshold = 2.0f)
     {
         //check angle to target node
         //  adjust turning radius
