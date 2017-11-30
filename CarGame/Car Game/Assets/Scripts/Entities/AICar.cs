@@ -137,6 +137,8 @@ public class AICar : MonoBehaviour
         }
 
         m_Loop = newNodes;
+
+        transform.position = m_Loop[0].transform.position;
     }
 
  
