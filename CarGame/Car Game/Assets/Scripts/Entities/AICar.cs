@@ -55,6 +55,8 @@ public class AICar : MonoBehaviour
 
     public virtual void Awake()
     {
+        
+
         m_collider = GetComponent<PolygonCollider2D>();
         m_rb = GetComponent<Rigidbody2D>();
     }
@@ -328,7 +330,7 @@ public class AICar : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, 0.5f);
+        // Gizmos.DrawSphere(transform.position, 0.5f);
 
         if (m_Loop != null)
         {
