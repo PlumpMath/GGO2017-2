@@ -10,6 +10,17 @@ public class RoadNode : MonoBehaviour
 
     private OmniRoadManager m_RoadManager;
 
+    void Awake()
+    {
+        foreach (RoadNode r in m_Neighbours)
+        {
+            if (r == null)
+            {
+                Debug.LogError(gameObject.name);
+            }
+        }
+    }
+
     void OnDrawGizmos()
     {
         if (m_RoadManager == null)
@@ -17,8 +28,8 @@ public class RoadNode : MonoBehaviour
             m_RoadManager = GameObject.FindObjectOfType<OmniRoadManager>();
         }
         Gizmos.color = m_RoadManager.m_EditorColor;
-        Gizmos.DrawSphere(transform.position, 0.25f);
-        Handles.Label(transform.position + (Vector3.up * 0.5f), gameObject.name);
+        //Gizmos.DrawSphere(transform.position, 0.25f);
+        //Handles.Label(transform.position + (Vector3.up * 0.5f), gameObject.name);
 
         if (m_Neighbours != null)
         {
