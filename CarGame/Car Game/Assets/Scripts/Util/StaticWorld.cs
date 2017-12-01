@@ -24,6 +24,8 @@ public  class StaticWorld : MonoBehaviour
 
 
 
+    public Cinemachine.CinemachineVirtualCamera playerCam;
+    public Cinemachine.CinemachineVirtualCamera mapCam;
 
 
     public GibPooler Gibs;
@@ -80,6 +82,18 @@ public  class StaticWorld : MonoBehaviour
             Time.timeScale = 0.0f;
 
             mUI.m_GameOver.Setup(PlayerData.TotalCash);
+        }
+
+
+        if (Input.GetKey(KeyCode.M))
+        {
+            mapCam.Priority = 10;
+            playerCam.Priority = 0;
+        }
+        else
+        {
+            mapCam.Priority = 0;
+            playerCam.Priority = 10;
         }
 
     }
